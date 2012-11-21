@@ -3,7 +3,7 @@ JQuery required
 */
 
 (function ($){
-  $.fn.rtSlider = function(options){
+  $.fn.easySlider = function(options){
     var img = [];
     elem = this;
     var settings = $.extend({
