@@ -1,0 +1,36 @@
+#nav{
+	width: 500px;
+	margin: 0 auto;
+	height: 20px;
+}
+#nav div{
+	cursor: pointer;
+}
+#left{
+	float: left;
+}
+#right{
+	float: right;
+}
+#slide{
+	position: relative;
+	padding: 0px;
+	width: 750px;
+	margin: 0px auto;
+	height: 230px;
+}
+#slide img{
+	position: absolute;
+	top: 37px;
+	left: 0px;
+}
+#content{
+	width: 1000px;
+	margin: 0 auto;
+}
+h3{
+	text-align: center;
+}
+p{
+	text-align: justify;
+}
