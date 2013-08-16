@@ -10,18 +10,25 @@ JQuery required
       delay: 2000,
       width: 100 ,
       height: 100,
-      img_path: "/images/slide/",
-      img_count: 0,
+      imgPath: "/images/slide/",
+      imgCount: 0,
+      imgList: null,
       pad: 2,
       prefix: "slide_",
       suffix: "",
       ext: ".jpg"
     },options);
-    for(i = 1;i < settings.img_count; i++){
-      img_num = strpad(i);
-      cur_img = [settings.img_path,settings.prefix,img_num,settings.suffix,settings.ext];
-      item = $("<img src='"+cur_img.join("")+"'/>").height(settings.height).width(settings.width);
-      img.push(item);
+    if(settings.imgList){
+      $(settings.imgList).each(function(){
+        item = getImg(this);
+        img.push(item);
+      });
+    }else{
+      for(i = 1;i < settings.imgCount; i++){
+        img_num = strpad(i);
+        item = getImg(img_num);
+        img.push(item);
+      }
     }
     for(i = 0; i < 2; i++){
       topimg = img.shift();
@@ -38,7 +45,22 @@ JQuery required
       $(elem).children("img").last().delay(settings.delay).fadeOut(settings.delay/2,rotate);
     }
     function strpad(val){
-      return (!isNaN(val) && val.toString().length==1)?"0"+val:val;
+      out = "";
+      if(!isNaN(val)){
+        nameLen = val.toString().length;
+        deltaLen = settings.pad - nameLen;
+        if(deltaLen > 0){
+          for(p = 0; p < deltaLen; p++){
+            out = "0" + out;
+          }
+        }
+        out = out + val;
+      }
+      return out;
+    }
+    function getImg(name){
+      cur_img = [settings.imgPath,settings.prefix,name,settings.suffix,settings.ext];
+      return $("<img src='"+cur_img.join("")+"'/>").height(settings.height).width(settings.width);
     }
   }
 })(jQuery);
