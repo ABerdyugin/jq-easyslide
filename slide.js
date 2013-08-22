@@ -26,8 +26,8 @@ JQuery required
     }else{
       for(i = 1;i < settings.imgCount; i++){
         img_num = strpad(i);
-        item = getImg(img_num);
-        img.push(item);
+        itm = getImg(img_num);
+        img.push(itm);
       }
     }
     for(i = 0; i < 2; i++){
